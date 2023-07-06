@@ -16,7 +16,6 @@ import { check } from "k6";
 var url = "http://www.connorjf.io/"
 
 export const options = {
-    // Key configurations for Stress in this section
     stages: [
       { duration: '5s', target: 10 }, // ramp-up
       { duration: '10s', target: 10 }, // plateau
