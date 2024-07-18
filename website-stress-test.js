@@ -17,7 +17,7 @@ var url = "http://www.riverwest24.com/leaderboard/"
 
 export const options = {
     thresholds: {
-        http_req_duration: ["p(95) < 3000"],
+        http_req_duration: ["p(95) < 3000"], // request resolution threshold in ms
     },
     stages: [
         { duration: '15m', target: 300 }, // ramp-up
