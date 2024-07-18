@@ -13,13 +13,14 @@
 import http from 'k6/http';
 import { check } from "k6";
 
-var url = "http://www.riverwest24.com/leaderboard/"
+var url = "https://www.riverwest24.com/leader-board/2024"
 
 export const options = {
     thresholds: {
         http_req_duration: ["p(95) < 3000"], // request resolution threshold in ms
     },
     stages: [
+        // target is Virtual Users
         { duration: '15m', target: 300 }, // ramp-up
         { duration: '30m', target: 300 }, // plateau
         { duration: '15m', target: 0 }, // ramp-down 
