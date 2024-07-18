@@ -13,15 +13,18 @@
 import http from 'k6/http';
 import { check } from "k6";
 
-var url = "http://www.connorjf.io/"
+var url = "http://www.riverwest24.com/leaderboard/"
 
 export const options = {
+    thresholds: {
+        http_req_duration: ["p(95) < 3000"],
+    },
     stages: [
-      { duration: '5s', target: 10 }, // ramp-up
-      { duration: '10s', target: 10 }, // plateau
-      { duration: '5s', target: 0 }, // ramp-down 
+        { duration: '15m', target: 300 }, // ramp-up
+        { duration: '30m', target: 300 }, // plateau
+        { duration: '15m', target: 0 }, // ramp-down 
     ],
-  };
+};
 
 export default function () {
     let res = http.get(url);
